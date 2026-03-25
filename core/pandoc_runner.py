@@ -25,7 +25,13 @@ def compile_format(md_path: str, output_path: str, format_type: str, pandoc_netw
         cmd.append("--epub-chapter-level=2")
     
     if format_type.lower() == "pdf":
-        cmd.extend(["--pdf-engine=xelatex", "-V", "CJKmainfont=Microsoft YaHei"])
+        # 解析①②③等特殊序号，需要通过 header 告知 xeCJK 将该 Unicode 区块 (U+2460-U+24FF) 视为 CJK 字符
+        cmd.extend([
+            "--pdf-engine=xelatex", 
+            "-V", "CJKmainfont=Microsoft YaHei",
+            "-V", r"header-includes=\usepackage{xeCJK}",
+            "-V", r'header-includes=\xeCJKDeclareCharClass{CJK}{"2460->"24FF}'
+        ])
 
     if formula_mode == "image":
         if pandoc_network == "offline":
