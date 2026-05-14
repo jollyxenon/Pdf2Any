@@ -34,3 +34,7 @@ output/
 # pixi environments
 .pixi/*
 !.pixi/config.toml
+
+.opencode/
+openspec/
+.sisyphus/

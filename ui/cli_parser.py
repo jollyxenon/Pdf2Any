@@ -1,5 +1,6 @@
 import argparse
 
+
 def get_parser():
     parser = argparse.ArgumentParser(description="PdfEpubOnlineConverter Batch CLI Tool")
     parser.add_argument("-i", "--input", nargs="+", help="输入的 PDF 文件路径，可同时提供多个")
@@ -8,4 +9,5 @@ def get_parser():
     parser.add_argument("--network", choices=["online", "offline"], default="offline", help="Pandoc 联网模式 (决定公式与外界图片的拉取)")
     parser.add_argument("--formula", choices=["image", "text"], default="text", help="公式转义形式 (image 强制引入 webtex)")
     parser.add_argument("--api-key", default="", help="MinerU API Key，留空则自动读取 .env")
+    parser.add_argument("--max-pages", type=int, default=150, help="大 PDF 自动分片的页数阈值 (默认 150)")
     return parser

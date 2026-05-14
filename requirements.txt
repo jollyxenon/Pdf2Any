@@ -2,3 +2,4 @@ gradio
 requests
 python-dotenv
 pytest
+pypdf
