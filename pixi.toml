@@ -1,0 +1,17 @@
+[workspace]
+authors = ["jollyxenon <1378319314@qq.com>"]
+channels = ["conda-forge"]
+name = "Pdf2Any"
+platforms = ["win-64"]
+version = "0.1.0"
+
+[tasks]
+main = "python main.py"
+
+[dependencies]
+requests = ">=2.34.1,<3"
+python-dotenv = ">=1.2.2,<2"
+pytest = ">=9.0.3,<10"
+
+[pypi-dependencies]
+gradio = ">=6.14.0, <7"

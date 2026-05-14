@@ -3,22 +3,15 @@ setlocal
 
 cd /d "%~dp0"
 
-where conda >nul 2>&1
+where pixi >nul 2>&1
 if errorlevel 1 (
-    echo [ERROR] conda command not found in PATH.
-    echo Please open Anaconda Prompt once, or add conda to PATH.
+    echo [ERROR] pixi command not found in PATH.
+    echo Please install pixi: https://pixi.sh/latest/
     pause
     exit /b 1
 )
 
-call conda activate Pdf2Any
-if errorlevel 1 (
-    echo [ERROR] Failed to activate conda environment: Pdf2Any
-    pause
-    exit /b 1
-)
-
-python main.py %*
+pixi run main %*
 set "EXIT_CODE=%ERRORLEVEL%"
 
 if not "%EXIT_CODE%"=="0" (

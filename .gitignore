@@ -31,3 +31,6 @@ share/python-wheels/
 test_outputs/
 test_inputs/
 output/
+# pixi environments
+.pixi/*
+!.pixi/config.toml
